@@ -50,6 +50,7 @@ pipeline {
               sh "npm i"
             }
         }
+    }
         stage('Parallel In Sequential') {
             parallel {
                 stage('In Parallel 1') {
