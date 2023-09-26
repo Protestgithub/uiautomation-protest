@@ -10,8 +10,8 @@ pipeline {
     
     choice(name: 'BROWSER', choices: ['Select','chrome', 'edge', 'firefox','electron'], description: 'Pick the web browser you want to use to run your scripts')
     string name: 'PLATFORM', defaultValue: 'x.09', trim: false, description: 'Mention the Platform where you have to run, for example: x.04,x.06,x.07,x.09'
-    string name: 'Adminurl', defaultValue: 'http://172.30.41.161', trim: false, description: 'Mention the Web UI url before dfscontainer where you have to run, for example: http://172.30.41.161'
-    string name: 'apiBaseURL', defaultValue: 'http://172.30.41.161', trim: false, description: 'Mention the API url where you hit api for test, for example: http://172.30.41.161'
+    string name: 'Adminurl', defaultValue: 'http://dfs-bd-demo-alb-2060992426.us-west-2.elb.amazonaws.com', trim: false, description: 'Mention the Web UI url before dfscontainer where you have to run, for example: http://172.30.41.161'
+    string name: 'apiBaseURL', defaultValue: 'http://dfs-bd-demo-alb-2060992426.us-west-2.elb.amazonaws.com', trim: false, description: 'Mention the API url where you hit api for test, for example: http://172.30.41.161'
 
     //booleanParam(name: "Load Jenkinsfile", defaultValue: 'true', description: 'To run db encryption')
 	//string name: 'tags', defaultValue: '/home/mobiquity/x9core/common-installer/mobiquityPay-vX.0.9_AnsibleScripts/multinode_mobiquity_deployment', trim: false, description: 'Mention the base path where ansible roles will be present, for example: /home/mobiquity/offlineDev/common-installer/latest/multinode_mobiquity_deployment'
@@ -50,14 +50,27 @@ pipeline {
               sh "npm i"
             }
         }
-                stage('UI Automation Execution'){
+        stage('UI Automation Pre-Requisites Execution'){
             steps {
-                sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --browser ${BROWSER}"
+                // sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --browser ${BROWSER}"
             }
             }
         
         }
-
+        stage('Parallel In Sequential') {
+            parallel {
+                stage('In Parallel 1') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec "cypress\e2e\BDD\Prerequisites\Admin" --browser ${BROWSER}"
+                        }
+                    }
+                stage('In Parallel 2') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec "cypress\e2e\BDD\Prerequisites\ChannelUser" --browser ${BROWSER}"
+                        }
+                    }
+                    }
+                }
     post {
         always {
             //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
