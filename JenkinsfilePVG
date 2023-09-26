@@ -50,13 +50,6 @@ pipeline {
               sh "npm i"
             }
         }
-        stage('UI Automation Pre-Requisites Execution'){
-            steps {
-                // sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --browser ${BROWSER}"
-            }
-            }
-        
-        }
         stage('Parallel In Sequential') {
             parallel {
                 stage('In Parallel 1') {
