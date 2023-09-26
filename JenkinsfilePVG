@@ -61,12 +61,12 @@ pipeline {
             parallel {
                 stage('In Parallel 1') {
                     steps {
-                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec "cypress/e2e/BDD/Prerequisites/Admin" --browser ${BROWSER}"
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/Admin' --browser ${BROWSER}"
                         }
                     }
                 stage('In Parallel 2') {
                     steps {
-                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec "cypress/e2e/BDD/Prerequisites/ChannelUser" --browser ${BROWSER}"
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/ChannelUser' --browser ${BROWSER}"
                         }
                     }
                     }
