@@ -47,7 +47,7 @@ pipeline {
         }
         stage('Install Dependencies'){
             steps{
-              bat "export DISPLAY=:99"
+              //bat "export DISPLAY=:99"
               bat "npm i"
             }
         }
