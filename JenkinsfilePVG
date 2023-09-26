@@ -56,15 +56,16 @@ pipeline {
             parallel {
                 stage('In Parallel 1') {
                     steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec '\${WORKSPACE}/Rakesh/cypress/e2e/BDD/Prerequisites/workspaces/Admin/*.feature' --browser ${BROWSER}"
+                       bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec \"${WORKSPACE}/Rakesh/cypress/e2e/BDD/Prerequisites/workspaces/Admin/*.feature\" --browser ${BROWSER}"
                         }
+
 
 
 
                     }
                 stage('In Parallel 2') {
                     steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec '\${WORKSPACE}/cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/*.feature' --browser ${BROWSER}"
+                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec \"${WORKSPACE}/cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/*.feature\" --browser ${BROWSER}"
                         }
                     }
                     }
@@ -80,7 +81,11 @@ pipeline {
             //   bat "allure generate allure-results"
 
 
-          
+              publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '${WORKSPACE}/reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+
+     bat "path/to/allure generate ${WORKSPACE}/allure-results -o ${WORKSPACE}/allure-report"
+
+
 
    // Publish the HTML report
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '${WORKSPACE}/reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
