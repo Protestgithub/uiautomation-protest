@@ -47,8 +47,8 @@ pipeline {
         }
         stage('Install Dependencies'){
             steps{
-              sh "export DISPLAY=:99"
-              sh "npm i"
+              bat "export DISPLAY=:99"
+              bat "npm i"
             }
         }
     
@@ -56,12 +56,12 @@ pipeline {
             parallel {
                 stage('In Parallel 1') {
                     steps {
-                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/Admin' --browser ${BROWSER}"
+                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/Admin' --browser ${BROWSER}"
                         }
                     }
                 stage('In Parallel 2') {
                     steps {
-                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/ChannelUser' --browser ${BROWSER}"
+                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/ChannelUser' --browser ${BROWSER}"
                         }
                     }
                     }
@@ -74,7 +74,7 @@ pipeline {
             //a useful "escape hatch." script blocks of non-trivial size and/or complexity should be moved into Shared Libraries instead.
          
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])           // deleteDir()
-              sh "allure generate allure-results"
+              bat "allure generate allure-results"
         }
     }
 }
