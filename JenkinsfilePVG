@@ -48,7 +48,7 @@ pipeline {
         stage('Install Dependencies'){
             steps{
               //bat "export DISPLAY=:99"
-              bat "npm i"
+              bat "npx cypress verify"
             }
         }
     
