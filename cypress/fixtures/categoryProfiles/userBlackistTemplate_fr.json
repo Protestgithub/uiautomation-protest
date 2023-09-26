@@ -1,0 +1,78 @@
+{
+  "groupLabels": {
+    "blacklistUser": "Blacklist User"
+  },
+  "sectionLabels": {
+    "blacklistUserInformation": "Blacklist User Section"
+  },
+  "firstName": {
+    "isRequired": "N",
+    "isRequiredError": "Le prénom est obligatoire",
+    "inputType": "text",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "pattern": "^[a-zA-Z ]*$",
+    "patternError": "Only alphabets and space is allowed",
+    "isEditable": "Y",
+    "bulk_label": "Prénom"
+  },
+  "lastName": {
+    "isRequired": "N",
+    "isRequiredError": "Le nom de famille est obligatoire",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "inputType": "text",
+    "pattern": "^[a-zA-Z ]*$",
+    "patternError": "Only alphabets and space are allowed",
+    "isEditable": "Y",
+    "bulk_label": "Nom de famille"
+  },
+  "dateOfBirth": {
+    "isRequired": "N",
+    "isRequiredError": "Date Of Birth is mandatory",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "inputType": "date",
+    "allowedValuesPattern": "YYYY-MM-DD",
+    "maxDate": "CURRENT_DATE",
+    "dateRangeError": "Les dates futures ne sont pas autorisées",
+    "isEditable": "Y",
+    "bulk_label": "Date de naissance"
+  },
+  "mobileNumber": {
+    "isRequired": "N",
+    "inputType": "text",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "isRequiredError": "Le numéro de portable est obligatoire",
+    "pattern": "^(|[0-9]{8,15})$",
+    "allowedValuesPattern": "xxxxxxxxxx",
+    "isEditable": "Y",
+    "bulk_label": "Numéro de téléphone portable",
+    "patternError": "Format de numéro de mobile invalide"
+  },
+  "kycIdType": {
+    "type": "enum",
+    "enumKey": "PROOF_TYPE",
+    "isRequired": "N",
+    "isRequiredError": "Le type d'identifiant KYC est obligatoire",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "isEditable": "Y",
+    "bulk_label": "Type d'identifiant KYC",
+    "patternError": "Valeur non valide du type d'identifiant KYC"
+  },
+  "kycIdValue": {
+    "type": "input",
+    "inputType": "text",
+    "isRequired": "N",
+    "isRequiredError": "L'identifiant KYC est obligatoire",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "pattern": "^(|[a-zA-Z0-9]{10,14})$",
+    "allowedValuesPattern": "xxxxxxxxxxxxxx",
+    "patternError": "Seuls les alphabets, les chiffres sont autorisés et la longueur doit être comprise entre 10 et 14 caractères",
+    "isEditable": "Y",
+    "bulk_label": "Numéro d'identification KYC"
+  }
+}

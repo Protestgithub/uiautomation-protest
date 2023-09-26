@@ -1,0 +1,33 @@
+{	
+   "sources":[
+      "all",
+      "coreWeb",
+      "ussd",
+      "MOBILE",
+	  "consumerPortal"
+   ],
+   "defaultProfile":"channelProfile_es",
+   "all":{
+      "agent":"channelProfile_es",
+      "wholesaler":"channelProfile_es",
+      "retailer":"channelProfile_es",
+	  "Enterprise":"enterpriseProfile"
+   },
+   "coreWeb":{
+      "RT":"channelProfile_es",
+      "WHS":"channelProfile_es",
+      "retailer":"channelProfile_es"
+   },
+   "MOBILE":{
+      "agent":"channelProfile_es",
+      "wholesaler":"channelProfile_es",
+      "retailer":"channelProfile_es",
+	  "Enterprise":"enterpriseProfile"
+   },
+   "ussd":{
+      "agent":"channelProfile_es"
+   },
+	"consumerPortal": {
+		"SUBS": "subscriberProfileForConsumerPortal_es"
+	}
+}

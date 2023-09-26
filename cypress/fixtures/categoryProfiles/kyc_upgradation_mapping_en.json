@@ -1,0 +1,21 @@
+{	
+   "sources":[
+      "all",
+      "coreWeb",
+      "ussd",
+      "MOBILE"
+   ],
+   "defaultProfile":"kycUpgradeProfileForSubscriber",
+   "all":{
+     "SUBS":"kycUpgradeProfileForSubscriber"
+   },
+   "coreWeb":{
+     "SUBS":"kycUpgradeProfileForSubscriber" 
+   },
+   "MOBILE":{
+      "SUBS":"kycUpgradeProfileForSubscriber"
+   },
+   "ussd":{
+     "SUBS":"kycUpgradeProfileForSubscriber"
+   }
+}

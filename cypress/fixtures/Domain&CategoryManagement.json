@@ -1,0 +1,47 @@
+{
+  "Errormsg":"Domain Name already exists in systemDomain Code already exists in system",
+  "Successmsg":" Domain Added Successfully",
+  "Successmsg1":"Category Add Initiated Successfully",
+  "Successmsg2":"Category Approved Successfully",
+  "sucessModify":"",
+  "GradeData1": {
+    "DomainName55": "Wholesaler",
+    "CategoryName55": "Wholesaler",
+    "Successmsg": " added successfully",
+    "Errormsg": "Transfer control profile exists for grade code "
+    },
+    "GradeData2":{
+      "DomainName56": "Merchant",
+      "CategoryName56" : "Merchant",
+      "Successmsg": " added successfully",
+      "Errormsg": "Transfer control profile exists for grade code "
+    },
+    
+  "domainData":{
+        "domainName":"Merchant",
+        "domainCode":"Merchant",
+        "domainCategories":""
+      },
+      "domainData1":{
+        "domainName":"Merchant",
+        "domainCode":"Merchant",
+        "domainCategories":""
+      },
+      "CategoryData":{
+        "categoryname":"Merchant",
+        "categoryCode":"Merchant",
+        "Domain":"Merchant",
+        "ParentCategory":"Merchant",
+        "GradeName56": "pkWdb",
+        "GradeCode56": 7737,
+        "CategoryName3": "Testing",
+        "CategoryCode3": "4564",
+        "Domainname3": "AtmMachine3925",
+        "DomainnameC2C":"C2C"
+},
+"DomainExist":"Domain Name already exists in system",
+"DomainCodeexist":"Domain Code already exists in system",
+  "DomainNameError":"Domain Name field is mandatory",
+"DomainCodeError":"Domain Code field is mandatory"
+
+}

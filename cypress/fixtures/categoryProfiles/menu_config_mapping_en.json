@@ -1,0 +1,35 @@
+{	
+   "sources":[
+      "all",
+      "coreWeb",
+      "ussd",
+      "MOBILE"
+   ],
+   "defaultProfile":"menu_config_en",
+   "all":{
+      "agent":"menu_config_en",
+      "wholesaler":"menu_config_en",
+      "retailer":"menu_config_en",
+	  "Enterprise":"menu_config_en",
+      "Network Admin":"menu_config_en",
+      "CCE": "menu_config_en"
+   },
+   "coreWeb":{
+      "RT":"menu_config_en",
+      "WHS":"menu_config_en",
+      "retailer":"menu_config_en",
+      "Network Admin": "menu_config_en",
+      "CCE":"menu_config_en"
+   },
+   "MOBILE":{
+      "agent":"menu_config_en",
+      "wholesaler":"menu_config_en",
+      "retailer":"menu_config_en",
+	  "Enterprise":"menu_config_en",
+      "channelAdmin": "menu_config_en",
+      "customerCare": "menu_config_en"
+   },
+   "ussd":{
+      "agent":"menu_config_en"
+   }
+}

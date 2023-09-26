@@ -1,0 +1,11 @@
+{
+  "Order Id*": "169503-662370-984322",
+  "Internal Reference Id*": "123456",
+  "Status(true/false)*": "TRUE",
+  "Phase*": "FULFILLMENT_REVERSAL",
+  "Payment ReferenceId": "",
+  "Fulfillment ReferenceId": "",
+  "Payment Reversal ReferenceId": "",
+  "Fulfilment Reversal ReferenceId*": "12345",
+  "Bank TransactionId": ""
+}

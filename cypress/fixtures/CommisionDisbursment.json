@@ -1,0 +1,13 @@
+{
+    "msisdn": {
+        "comissiondismsisdn": "7786535187"
+    },
+    "alertmessage": "The bulk request file has been uploaded",
+    "Provider": "MFS1",
+    "domain": "Merchant",
+    "category": "Head Merchant",
+    "Suspended": "User is suspended",
+    "ComDisBulkReject": "Bulk Operation request has been rejected successfully for the batch ID",
+    "ComDisBulKSuccess": "Approval for the bulk request file has been initiated.",
+    "FAiledstatus": "File processing has failed due to issues with the file content. Please check the status file details with batch ID: "
+}

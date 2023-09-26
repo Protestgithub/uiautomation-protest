@@ -1,0 +1,78 @@
+{
+  "groupLabels": {
+    "blacklistUser": "Blacklist User"
+  },
+  "sectionLabels": {
+    "blacklistUserInformation": "Blacklist User Section"
+  },
+  "firstName": {
+    "isRequired": "N",
+    "isRequiredError": "الاسم الأول إلزامي",
+    "inputType": "text",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "pattern": "^[a-zA-Z ]*$",
+    "patternError": "يسمح فقط بالحروف الهجائية والمسافات",
+    "isEditable": "Y",
+    "bulk_label": "لاسم الأول"
+  },
+  "lastName": {
+    "isRequired": "N",
+    "isRequiredError": "الاسم الأخير إلزامي",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "inputType": "text",
+    "pattern": "^[a-zA-Z ]*$",
+    "patternError": "يسمح فقط بالحروف الهجائية والمسافات",
+    "isEditable": "Y",
+    "bulk_label": "الكنية"
+  },
+  "dateOfBirth": {
+    "isRequired": "N",
+    "isRequiredError": "Date Of Birth is mandatory",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "inputType": "date",
+    "allowedValuesPattern": "YYYY-MM-DD",
+    "maxDate": "CURRENT_DATE",
+    "dateRangeError": "التواريخ المستقبلية غير مسموح بها",
+    "isEditable": "Y",
+    "bulk_label": "تاريخ الولادة"
+  },
+  "mobileNumber": {
+    "isRequired": "N",
+    "inputType": "text",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "isRequiredError": "رقم الهاتف المحمول إلزامي",
+    "pattern": "^(|[0-9]{8,15})$",
+    "allowedValuesPattern": "xxxxxxxxxx",
+    "isEditable": "Y",
+    "bulk_label": "رقم الهاتف المحمول",
+    "patternError": "تنسيق رقم الهاتف المحمول غير صحيح"
+  },
+  "kycIdType": {
+    "type": "enum",
+    "enumKey": "PROOF_TYPE",
+    "isRequired": "N",
+    "isRequiredError": "نوع معرف KYC إلزامي",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "isEditable": "Y",
+    "bulk_label": "نوع معرف KYC",
+    "patternError": "قيمة غير صالحة لنوع معرف KYC"
+  },
+  "kycIdValue": {
+    "type": "input",
+    "inputType": "text",
+    "isRequired": "N",
+    "isRequiredError": "معرف KYC إلزامي",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "pattern": "^(|[a-zA-Z0-9]{10,14})$",
+    "allowedValuesPattern": "xxxxxxxxxxxxxx",
+    "patternError": "يُسمح فقط بالأبجدية والأرقام ويجب أن يتراوح الطول بين 10 إلى 14 حرفًا",
+    "isEditable": "Y",
+    "bulk_label": "رقم معرف KYC"
+  }
+}

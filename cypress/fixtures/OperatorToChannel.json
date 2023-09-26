@@ -1,0 +1,22 @@
+{
+    "O2CTransferInitiate": {
+        "msisdn": "7783709006",
+        "msisdn1": "7786848641",
+        "payeeProvider": "MFS1",
+        "payeeWalletType": "Commission",
+        "type": "Cash",
+        "errorMessage": "Receiver has been suspended",
+        "ErrorMessage": "Please enter a valid Transfer Amount",
+        "ErrorMessage1": "Transfer amount more than maximum allowed transfer amount."
+    },
+    "workflow": "Owner to Channel",
+    "currency": "US Dollar",
+    "wallet": "Normal",
+    "instument": "Cash",
+    "O2CInitiateMsg": "O2C is successfully initiated with transaction ID: ",
+    "O2CApproval1Msg": "Owner to Channel transaction completed with Transaction ID :",
+    "FileUploadError": "File processing has failed due to issues with the file content.",
+    "FileUploadSuccessmsg": "The bulk request file has been uploaded and the processing has been initiated",
+    "CSVfileUploaderror": "Only csv files can be uploaded",
+    "ViewStatus": "All"
+}

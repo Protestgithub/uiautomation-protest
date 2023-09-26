@@ -1,0 +1,55 @@
+{
+    "menu": {
+        "dashboard": {
+            "pathSegment": "dashboard",
+            "label": "Dashboard",
+            "icon": "bbyd-dashboard",
+            "viewUrl": "/sampleapp.html#/dashboard"
+        },
+        "registration": {
+            "pathSegment": "user-registration",
+            "label": "Registration",
+            "icon": "add-contact",
+            "viewUrl": "http://localhost:4300/#/user-registration"  ,
+            "category": {
+                "label": "User Management",
+                "icon": "user-settings",
+                "collapsible": true
+            }
+        },
+        "modification": {
+            "pathSegment": "user-modification",
+            "label": "Manage Users",
+            "icon": "approvals",
+            "viewUrl": "http://localhost:4300/#/user-modification"  ,
+            "category": {
+                "label": "User Management",
+                "icon": "user-settings",
+                "collapsible": true
+            }
+        },
+        "myUsers": {
+            "pathSegment": "my-users",
+            "label": "My Users",
+            "icon": "approvals",
+            "viewUrl": "http://localhost:4300/#/my-users"  ,
+            "category": {
+                "label": "User Management",
+                "icon": "user-settings",
+                "collapsible": true
+            }
+        },
+        "approval": {
+            "pathSegment": "user-approval",
+            "label": "Approvals",
+            "icon": "approvals",
+            "viewUrl": "http://localhost:4300/#/user-approval"  
+        },
+        "securityProfile": {
+            "pathSegment": "security-profile",
+            "label": "Security Profile",
+            "icon": "shield",
+            "viewUrl": "http://localhost:4200/#/security-profile"  
+        }
+    }
+}

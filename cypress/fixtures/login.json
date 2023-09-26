@@ -1,0 +1,45 @@
+{  
+  "loginPageTitle": "Welcome to Mobiquity Pay",
+  "BAAdminText":"Text ",
+  "DefaultPassword":"000000",
+  "BAPassword":"Com@13579",
+  
+  "masteradminmaker" : {
+    "superadminm" : "superadminm",
+    "superadminmPwd" : "Com@135"
+  },
+  "masteradminchecker" : {
+    "superadminc" : "superadminc",
+    "superadmincPwd" : "Com@135"
+  },
+  "businessAdmin": {
+    "businessadminPwd1": "Com@135",
+    "DefaultPassword" :"000000",
+    "PIN":"1357"
+    },
+    "subscriber":{
+      "sub1":"Beta88067",
+      "subpwd":"000000",
+      "subpwd1":"Com@13579"
+    },
+    "superadminc": {
+      "superadminchecker": "superadmin checker"
+    },
+    "superadminm": {
+      "superadminmaker": "superadmin maker"
+    },
+
+"ErrorMessageLogin":"User is suspended",
+"UserCreationSuccessMessage":"Your password has been changed. Please login to continue",
+ "PINChangeMessage":"changed",
+ "EnterpriseRejectSuccessMsg":"Enterprise Payment request has been rejected successfully for the batch ID:",
+ "EnterpriseApprovalSuccessMsg":"Approval for the enterprise payment request has been initiated. You'll receive a notification shortly once the bulk request has been successfully processed and sent for approval. Otherwise, please check the dashboard to get details of any failure in processing with batch ID:",
+ "EnterpriseFailedMessage":"File processing has failed due to issues with the file content. Please check the status file details with batch ID",
+"FailedMessageDashboard":"File processing has failed due to issues with the file content",
+"EnterpriseSuccessMessage":"The enterprise payment file has been uploaded and the processing has been initiated. You'll receive a notification shortly once the bulk request has been successfully processed and sent for approval. Otherwise, please check the dashboard to get details of any failure in processing with batch ID:",
+"cashinsuccessmessage":"CASHIN done successfully toTransaction id:",
+"cashoutsuccessmessage":"Your transaction request has been initiated, and is now pending confirmation Transaction id:"
+
+}
+
+

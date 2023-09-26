@@ -1,0 +1,8 @@
+{
+  "searchValue": {
+    "isRequired": "Y",
+    "isRequiredError": "Search Value is mandatory",
+    "isEditable": "Y",
+    "bulk_label": "Search Value"
+  }
+}

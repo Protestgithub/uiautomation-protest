@@ -1,0 +1,20 @@
+{
+  "BankName": "GUMMF",
+  "bankMaster": {
+    "Provider": "MFS1",
+    "BankType": "Trust",
+    "PoolAccountType": "Saving Account",
+    "CBSType": "Flex",
+    "Assert": "Bank Mapping Modified Successfully",
+    "ErrorMessage": "Bank Name is mandatory",
+    "assert": "successfully",
+    "assertone": "Bank Name*:"
+  },
+  "PoolAccNo": "Pool Account is already associated with another Bank/User",
+  "Priority": "Priority is already associated with another Bank",
+  "Bankname1": "Bank Already Exist",
+  "PoolAccType": "Pool Account Type is mandatory",
+  "CBStype": "CBS Type is required",
+  "Prirityvalue": "Please provide priority value",
+  "Mandatoryfield": "mandatory field missing: PoolAccountNumber"
+}

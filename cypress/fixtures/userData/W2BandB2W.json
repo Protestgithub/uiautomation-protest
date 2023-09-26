@@ -1,0 +1,19 @@
+{
+
+  "TransferAmount": "3",
+  "ServiceCharge": 0.82,
+  "ServiceChargeTax": 0.06,
+  "Commission": 0,
+  "CommissionTax": 0,
+  "Tax": 0.08,
+  "NetPayable": 3.88,
+  "B2WServiceRequesiId": "10bdca46-eac1-47e8-9d85-05717f267076",
+  "B2WOrderId": "169285-069635-372585",
+  "B2WId1": "BW230824.0948.20733015",
+  "W2BServiceRequesiId": "5adc8499-e9b9-4996-b12d-b2f5fd65bd52",
+  "W2BOrderId": "169417-070257-902665",
+  "W2BId1": "WB230824.0949.20733019",
+  "WalletBalace": null,
+  "RevertedOnTime": "18/09/2023 5:01 PM",
+  "W2BId2": "WB230908.1628.20751997"
+}

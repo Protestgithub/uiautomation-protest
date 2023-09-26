@@ -1,0 +1,68 @@
+{
+  "sources":[
+    "all",
+    "coreWeb",
+    "ussd",
+    "MOBILE",
+	"consumerPortal"
+  ],
+  "defaultProfile":"agentProfile_fr",
+  "all":{
+    "agent":"agentProfile_fr",
+    "wholesaler":"channelProfile_fr",
+    "retailer":"channelProfile_fr",
+    "Enterprise":"enterpriseProfile_fr",
+    "MER": "merchantProfile_fr",
+    "SUBS": "subscriberProfile_fr",
+    "WBILLMER": "biller-business-profile_fr",
+    "CCE": "adminProfile_fr",
+    "BCU": "adminProfile_fr",
+    "NWADM": "adminProfile_fr",
+    "SSA": "businessProfile_fr",
+    "MERCHANT": "telcOperatorProfile_fr",
+    "HMER": "headMerchantProfile_fr",
+    "ATMMACHINE": "atmMachineProfile_fr"
+  },
+  "coreWeb":{
+    "RT":"agentProfile_fr",
+    "WHS":"channelProfile_fr",
+    "retailer":"channelProfile_fr",
+    "MER": "merchantProfile_fr",
+    "SUBS": "subscriberProfile_fr",
+    "WBILLMER": "biller-business-profile_fr",
+    "CCE": "adminProfile_fr",
+    "BCU": "adminProfile_fr",
+    "NWADM": "adminProfile_fr",
+    "SSA": "businessProfile_fr",
+    "MERCHANT": "telcOperatorProfile_fr",
+    "HMER": "headMerchantProfile_fr",
+    "ATMMACHINE": "atmMachineProfile_fr"
+  },
+  "MOBILE":{
+    "agent":"agentProfile_fr",
+    "wholesaler":"channelProfile_fr",
+    "retailer":"channelProfile_fr",
+    "Enterprise":"enterpriseProfile_fr",
+    "MER": "merchantProfile_fr",
+    "SUBS": "subscriberProfile_fr",
+    "CCE": "adminProfile_fr",
+    "BCU": "adminProfile_fr",
+    "NWADM": "adminProfile_fr",
+    "HMER": "headMerchantProfile_fr"
+
+  },
+  "ussd":{
+    "agent":"agentProfile_fr",
+    "MER": "merchantProfile_fr",
+    "SUBS": "subscriberProfile_fr",
+    "WBILLMER": "biller-business-profile_fr",
+    "CCE": "adminProfile_fr",
+    "BCU": "adminProfile_fr",
+    "NWADM": "adminProfile_fr",
+    "SSA": "businessProfile_fr"
+
+  },
+  "consumerPortal": {
+	"SUBS": "subscriberProfileForConsumerPortal_fr"
+  }
+}

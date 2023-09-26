@@ -1,0 +1,41 @@
+{
+  "sources": ["all", "coreWeb", "ussd", "MOBILE"],
+  "defaultProfile": "admin_security_profile_fr",
+  "all": {
+    "agent": "bussiness_security_profile_fr",
+    "wholesaler": "bussiness_security_profile_fr",
+    "retailer": "bussiness_security_profile_fr",
+    "Enterprise": "bussiness_security_profile_fr",
+    "BNK": "bussiness_security_profile_fr",
+    "EMP": "bussiness_security_profile_fr",
+    "EMPLOYER": "bussiness_security_profile_fr",
+    "HMER": "bussiness_security_profile_fr",
+    "INTPAT": "bussiness_security_profile_fr",
+    "MER": "bussiness_security_profile_fr",
+    "MERCHANT": "bussiness_security_profile_fr",
+    "PROLLOPT": "bussiness_security_profile_fr",
+    "RT": "bussiness_security_profile_fr",
+    "SMERn": "bussiness_security_profile_fr",
+    "SSA": "bussiness_security_profile_fr",
+    "TR": "bussiness_security_profile_fr",
+    "WBILLMER": "bussiness_security_profile_fr",
+    "WHS": "bussiness_security_profile_fr",
+    "Subscriber":"subscriber_security_profile_fr",
+		"SUBS":"subscriber_security_profile_fr"
+  },
+  "coreWeb": {
+    "RT": "bussiness_security_profile_fr",
+    "WHS": "bussiness_security_profile_fr",
+    "Subscriber":"subscriber_security_profile_fr",
+    "retailer": "bussiness_security_profile_fr"
+  },
+  "MOBILE": {
+    "agent": "bussiness_security_profile_fr",
+    "wholesaler": "bussiness_security_profile_fr",
+    "retailer": "bussiness_security_profile_fr",
+    "Enterprise": "bussiness_security_profile_fr"
+  },
+  "ussd": {
+    "agent": "bussiness_security_profile_fr"
+  }
+}

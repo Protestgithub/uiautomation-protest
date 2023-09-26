@@ -1,0 +1,72 @@
+pipeline {
+    //The agent section specifies where the entire Pipeline, or a specific stage, 
+    //will execute in the Jenkins environment depending on where the agent section is placed.
+    
+    
+    //The parameters directive provides a list of parameters that a user should provide when triggering the Pipeline.
+    //The values for these user-specified parameters are made available to Pipeline steps via the params object, see
+    //the Parameters, Declarative Pipeline for its specific usage.
+    parameters {
+    
+    choice(name: 'BROWSER', choices: ['Select','chrome', 'edge', 'firefox','electron'], description: 'Pick the web browser you want to use to run your scripts')
+    string name: 'PLATFORM', defaultValue: 'x.09', trim: false, description: 'Mention the Platform where you have to run, for example: x.04,x.06,x.07,x.09'
+    string name: 'Adminurl', defaultValue: 'http://172.30.41.161', trim: false, description: 'Mention the Web UI url before dfscontainer where you have to run, for example: http://172.30.41.161'
+    string name: 'apiBaseURL', defaultValue: 'http://172.30.41.161', trim: false, description: 'Mention the API url where you hit api for test, for example: http://172.30.41.161'
+
+    //booleanParam(name: "Load Jenkinsfile", defaultValue: 'true', description: 'To run db encryption')
+	//string name: 'tags', defaultValue: '/home/mobiquity/x9core/common-installer/mobiquityPay-vX.0.9_AnsibleScripts/multinode_mobiquity_deployment', trim: false, description: 'Mention the base path where ansible roles will be present, for example: /home/mobiquity/offlineDev/common-installer/latest/multinode_mobiquity_deployment'
+	//string name: 'Prerequisite', defaultValue: '@Prerequisite', trim: false, description: 'Mention the platform name for which deployment is being done, for example: offlineDev, NOTE: MAKE SURE THE VALUE SHOULD NOT INCLUDE - in the name as this variable will be used to create db names'
+	//string name: 'tags', defaultValue: '/home/mobiquity/x9core/common-installer/mobiquityPay-vX.0.9_AnsibleScripts/multinode_mobiquity_deployment', trim: false, description: 'Mention the base path where ansible roles will be present, for example: /home/mobiquity/offlineDev/common-installer/latest/multinode_mobiquity_deployment'
+	//choice choices: ['Select', 'true', 'false'], name: 'Prerequisite', description: 'Choose true to run pre-requisite else choose false'
+	
+    }
+    
+   //@Prerequisite
+   //@Smoke
+   //@Sanity
+   //@x.04 @x.07 @x.09
+
+    //The stage directive goes in the stages section and should contain a steps section, an optional agent section, 
+    //or other stage-specific directives. Practically speaking, all of the real work done by a Pipeline will be wrapped
+    //in one or more stage directives.
+    agent { label 'CD-PVGUI' }
+  environment {
+        BROWSER = "${params.BROWSER}"
+		PLATFORM = "${params.PLATFORM}"
+		Adminurl = "${params.Adminurl}"
+		apiBaseURL = "${params.apiBaseURL}"
+}
+    stages {
+        
+        stage('Build'){
+            //The steps section defines a series of one or more steps to be executed in a given stage directive.
+            steps {
+                echo "Building the application"
+            }
+        }
+        stage('Install Dependencies'){
+            steps{
+              sh "export DISPLAY=:99"
+              sh "npm i"
+            }
+        }
+                stage('UI Automation Execution'){
+            steps {
+                sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --browser ${BROWSER}"
+            }
+            }
+        
+        }
+
+    post {
+        always {
+            //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
+            //For most use-cases, the script step should be unnecessary in Declarative Pipelines, but it can provide
+            //a useful "escape hatch." script blocks of non-trivial size and/or complexity should be moved into Shared Libraries instead.
+         
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])           // deleteDir()
+              sh "allure generate allure-results"
+        }
+    }
+}
+Footer

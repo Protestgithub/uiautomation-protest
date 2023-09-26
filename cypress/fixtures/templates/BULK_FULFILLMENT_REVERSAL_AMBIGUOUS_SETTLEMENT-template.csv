@@ -1,0 +1,2 @@
+Order Id*,Internal Reference Id*,Status(true/false)*,Phase*,Payment ReferenceId,Fulfillment ReferenceId,Payment Reversal ReferenceId,Fulfilment Reversal ReferenceId*,Bank TransactionId
+169503-662370-984322,123456,TRUE,FULFILLMENT_REVERSAL,,,,12345,

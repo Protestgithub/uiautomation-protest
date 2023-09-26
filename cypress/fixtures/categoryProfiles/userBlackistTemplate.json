@@ -1,0 +1,82 @@
+{
+  "groupLabels": {
+    "blacklistUser": "Blacklist User"
+  },
+  "sectionLabels": {
+    "blacklistUserInformation": "Blacklist User Section"
+  },
+  "firstName": {
+    "type": "input",
+    "isRequired": "N",
+    "isRequiredError": "First Name is mandatory",
+    "inputType": "text",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "pattern": "^[a-zA-Z ]*$",
+    "patternError": "Only alphabets and space is allowed",
+    "isEditable": "Y",
+    "bulk_label": "First Name"
+  },
+  "lastName": {
+    "type": "input",
+    "isRequired": "N",
+    "isRequiredError": "Last Name is mandatory",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "inputType": "text",
+    "pattern": "^[a-zA-Z ]*$",
+    "patternError": "Only alphabets and space is allowed",
+    "isEditable": "Y",
+    "bulk_label": "Last Name"
+  },
+  "dateOfBirth": {
+    "type": "input",
+    "isRequired": "N",
+    "isRequiredError": "Date Of Birth is mandatory",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "inputType": "date",
+    "allowedValuesPattern": "YYYY-MM-DD",
+    "maxDate": "CURRENT_DATE",
+    "dateRangeError": "Future Dates are not allowed",
+    "isEditable": "Y",
+    "bulk_label": "Date Of Birth"
+  },
+  "mobileNumber": {
+    "type": "input",
+    "isRequired": "N",
+    "inputType": "text",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "isRequiredError": "Mobile Number is mandatory",
+    "pattern": "^(|[0-9]{8,15})$",
+    "allowedValuesPattern": "xxxxxxxxxx",
+    "isEditable": "Y",
+    "bulk_label": "Mobile Number",
+    "patternError": "Invalid mobile number format"
+  },
+  "kycIdType": {
+    "type": "enum",
+    "enumKey": "PROOF_TYPE",
+    "isRequired": "N",
+    "isRequiredError": "KYC Id Type is mandatory",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "isEditable": "Y",
+    "bulk_label": "KYC Id Type",
+    "patternError": "Invalid KYC ID Type"
+  },
+  "kycIdValue": {
+    "type": "input",
+    "inputType": "text",
+    "isRequired": "N",
+    "isRequiredError": "KYC Id Number is mandatory",
+    "group": "blacklistUser",
+    "section": "blacklistUserInformation",
+    "pattern": "^(|[a-zA-Z0-9]{10,14})$",
+    "allowedValuesPattern": "xxxxxxxxxxxxxx",
+    "patternError": "Only alphabets,digits are allowed and the length should between 10 to 14 characters",
+    "isEditable": "Y",
+    "bulk_label": "KYC Id Number"
+  }
+}

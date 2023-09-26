@@ -1,0 +1,20 @@
+{
+    "SenderWalletType":"Normal",
+    "SenderWalletType1":"Normal",
+    "Service":"Acquisition Fees",
+    "Service1":"Account Closure By Agent",
+    "SenderGrade":"Gold Subscriber",
+    "SenderGrade1":"Gold Customer",
+    "ReceiverGrade":"Merchant",
+    "PayingEntity":"Subscriber",
+    "PayingEntity1":"Customer",
+    "CreditEntity":"MFS1",
+    "Successmsg":"successfully",
+    "O2CService":"Automatic O2C",
+    "O2CSenderGrade":"Operator",
+    "O2CReceiverGrade":"Silver Wholesaler",
+    "O2CPayingEntity":"Wholesaler",
+    "SuspendSuccess":"Service Charge profiles successfully suspended or activated",
+    "DateError":"Applicable date should be greater or equal to current date"
+
+}
