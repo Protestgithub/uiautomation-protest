@@ -50,7 +50,7 @@ pipeline {
               sh "npm i"
             }
         }
-    }
+    
         stage('Parallel In Sequential') {
             parallel {
                 stage('In Parallel 1') {
@@ -65,6 +65,7 @@ pipeline {
                     }
                     }
                 }
+    }
     post {
         always {
             //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
