@@ -56,7 +56,8 @@ pipeline {
             parallel {
                 stage('In Parallel 1') {
                     steps {
-                       bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec \"${WORKSPACE}/cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/*.feature\" --browser ${BROWSER}"
+                      // bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec \"cypress\e2e\BDD\Prerequisites\workspaces\Admin\SuperAdmin\*.feature\" --browser ${BROWSER}"
+bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec \"cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/*.feature\" --browser ${BROWSER}"
 
                       
                         }
@@ -69,7 +70,7 @@ pipeline {
                     steps {
                        
                         
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec \"${WORKSPACE}/cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/*.feature\" --browser ${BROWSER}"
+                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec \"cypress/e2e\BDD\Prerequisites\workspaces\ChannelUser/*.feature\" --browser ${BROWSER}"
                         }
                     }
                     }
