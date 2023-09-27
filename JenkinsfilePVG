@@ -48,7 +48,7 @@ pipeline {
         stage('Install Dependencies'){
             steps{
               //bat "export DISPLAY=:99"
-              bat "npm install cypress@12.15.0"
+              //bat "npm install cypress@12.15.0"
            echo "Building"
             }
         }
@@ -57,7 +57,7 @@ pipeline {
             parallel {
                 stage('In Parallel 1') {
                     steps {
-                     bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
+                     bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin'"
 
 
                         }
@@ -67,7 +67,7 @@ pipeline {
                     steps {
                        
              
-                        bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
+                        bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser'"
                         }
                     }
                     }
