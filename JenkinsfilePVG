@@ -49,9 +49,7 @@ pipeline {
             steps{
               //bat "export DISPLAY=:99"
               //bat "npm install cypress@10.6.0"
-              bat "npm i"
-              bat "npm install cypress@10.6.0"
-              bat "npx cypress verify"
+           echo "Building"
             }
         }
     
@@ -61,12 +59,9 @@ pipeline {
                     steps {
                      bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/**/**/*.feature' --browser ${BROWSER}"
 
-   
+
                         }
                      
-
-
-
                     }
                 // stage('In Parallel 2') {
                 //     steps {
