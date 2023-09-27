@@ -49,6 +49,8 @@ pipeline {
             steps{
               //bat "export DISPLAY=:99"
               //bat "npm install cypress@10.6.0"
+              bat "npm i"
+              bat "npm install cypress@10.6.0"
               bat "npx cypress verify"
             }
         }
@@ -82,22 +84,22 @@ pipeline {
             //For most use-cases, the script step should be unnecessary in Declarative Pipelines, but it can provide
             //a useful "escape hatch." script blocks of non-trivial size and/or complexity should be moved into Shared Libraries instead.
          
-            // publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])           // deleteDir()
-            //   bat "allure generate allure-results"
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])           // deleteDir()
+              bat "allure generate allure-results"
 
 
-             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: "$WORKSPACE/reports", reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+    //          publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: "$WORKSPACE/reports", reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
 
            
-     bat "path/to/allure generate ${WORKSPACE}/allure-results -o ${WORKSPACE}/allure-report"
+    //  bat "path/to/allure generate ${WORKSPACE}/allure-results -o ${WORKSPACE}/allure-report"
 
 
 
    // Publish the HTML report
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '${WORKSPACE}/reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+            // publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '${WORKSPACE}/reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
             
-            // Generate the Allure report (replace "path/to/allure" with the actual path)
-            bat "path/to/allure generate ${WORKSPACE}/allure-results -o ${WORKSPACE}/allure-report"
+            // // Generate the Allure report (replace "path/to/allure" with the actual path)
+            // bat "path/to/allure generate ${WORKSPACE}/allure-results -o ${WORKSPACE}/allure-report"
         
         }
     }
