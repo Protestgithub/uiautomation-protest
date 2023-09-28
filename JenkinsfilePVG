@@ -85,100 +85,100 @@ pipeline {
                     }
                     }
                 }
-        stage('8') {
-            parallel {
-                stage('9') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/GradeCreation/*.feature' --browser ${BROWSER}"
-                        }
-                    }
-        stage('10') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/ProfileCreation/Systemadmin.feature' --browser ${BROWSER}"
-                        }
-                    }
-        stage('11') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SystemAdmin/CreationOfUsers/**/*.feature' --browser ${BROWSER}"
-                        }
-                    }
+        // stage('8') {
+        //     parallel {
+        //         stage('9') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/GradeCreation/*.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
+        // stage('10') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/ProfileCreation/Systemadmin.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
+        // stage('11') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SystemAdmin/CreationOfUsers/**/*.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
 
-                    }
-                }
-        stage('12') {
-            parallel {
-                stage('13') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SystemAdmin/zTransaction/*.feature' --browser ${BROWSER}"
-                        }
-                    }
-                stage('14') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/O2C.feature' --browser ${BROWSER}"
-                        }
-                    }
-                stage('15') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/EmployeeCreation.feature' --browser ${BROWSER}"
-                        }
-                    }
+        //             }
+        //         }
+        // stage('12') {
+        //     parallel {
+        //         stage('13') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SystemAdmin/zTransaction/*.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
+        //         stage('14') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/O2C.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
+        //         stage('15') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/EmployeeCreation.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
 
-                    }
-                }
-        stage('16') {
-            parallel {
-                stage('17') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/Cashin.feature' --browser ${BROWSER}"
-                        }
-                    }
-                stage('18') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/CashOut.feature' --browser ${BROWSER}"
-                        }
-                    }
-                stage('19') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/TransferToBank/bTransfertoBank.feature' --browser ${BROWSER}"
-                        }
-                    }
+        //             }
+        //         }
+        // stage('16') {
+        //     parallel {
+        //         stage('17') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/Cashin.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
+        //         stage('18') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/CashOut.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
+        //         stage('19') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/TransferToBank/bTransfertoBank.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
 
-                    }
-                }
-        stage('20') {
-            parallel {
-                stage('21') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/TransferToBank/OrderDetails.feature' --browser ${BROWSER}"
-                        }
-                    }
-                stage('22') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/xBusinessAdmin/*.feature' --browser ${BROWSER}"
-                        }
-                    }
-                stage('23') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/TCPCreation/CustomerLevelTCP' --browser ${BROWSER}"
-                        }
-                    }
+        //             }
+        //         }
+        // stage('20') {
+        //     parallel {
+        //         stage('21') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/TransferToBank/OrderDetails.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
+        //         stage('22') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/xBusinessAdmin/*.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
+        //         stage('23') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/TCPCreation/CustomerLevelTCP' --browser ${BROWSER}"
+        //                 }
+        //             }
 
-                    }
-                }
-        stage('24') {
-            parallel {
-                stage('25') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/TCPCreation/InstrumentLevelTCP' --browser ${BROWSER}"
-                        }
-                    }
-                stage('26') {
-                    steps {
-                        bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/xBusinessAdmin/*.feature' --browser ${BROWSER}"
-                        }
-                    }
-                    }
-                }
+        //             }
+        //         }
+        // stage('24') {
+        //     parallel {
+        //         stage('25') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/TCPCreation/InstrumentLevelTCP' --browser ${BROWSER}"
+        //                 }
+        //             }
+        //         stage('26') {
+        //             steps {
+        //                 bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/xBusinessAdmin/*.feature' --browser ${BROWSER}"
+        //                 }
+        //             }
+        //             }
+        //         }
 
             }           
     post {
