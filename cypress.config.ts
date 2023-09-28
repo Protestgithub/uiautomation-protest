@@ -134,7 +134,6 @@ module.exports = defineConfig({
     prefix: "77"
   },
   projectId: "yizpik",
-  chromeWebSecurity: true,
   retries: {
     runMode: 0,
     openMode: 0,
