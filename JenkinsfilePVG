@@ -1,5 +1,4 @@
 pipeline {
-    agent any
     //The agent section specifies where the entire Pipeline, or a specific stage, 
     //will execute in the Jenkins environment depending on where the agent section is placed.
     
@@ -11,8 +10,8 @@ pipeline {
     
     choice(name: 'BROWSER', choices: ['Select','chrome', 'edge', 'firefox','electron'], description: 'Pick the web browser you want to use to run your scripts')
     string name: 'PLATFORM', defaultValue: 'x.09', trim: false, description: 'Mention the Platform where you have to run, for example: x.04,x.06,x.07,x.09'
-    string name: 'Adminurl', defaultValue: 'http://dfs-bd-demo-alb-2060992426.us-west-2.elb.amazonaws.com', trim: false, description: 'Mention the Web UI url before dfscontainer where you have to run, for example: http://172.30.41.161'
-    string name: 'apiBaseURL', defaultValue: 'http://dfs-bd-demo-alb-2060992426.us-west-2.elb.amazonaws.com', trim: false, description: 'Mention the API url where you hit api for test, for example: http://172.30.41.161'
+    string name: 'Adminurl', defaultValue: 'http://172.30.41.161', trim: false, description: 'Mention the Web UI url before dfscontainer where you have to run, for example: http://172.30.41.161'
+    string name: 'apiBaseURL', defaultValue: 'http://172.30.41.161', trim: false, description: 'Mention the API url where you hit api for test, for example: http://172.30.41.161'
 
     //booleanParam(name: "Load Jenkinsfile", defaultValue: 'true', description: 'To run db encryption')
 	//string name: 'tags', defaultValue: '/home/mobiquity/x9core/common-installer/mobiquityPay-vX.0.9_AnsibleScripts/multinode_mobiquity_deployment', trim: false, description: 'Mention the base path where ansible roles will be present, for example: /home/mobiquity/offlineDev/common-installer/latest/multinode_mobiquity_deployment'
@@ -30,7 +29,7 @@ pipeline {
     //The stage directive goes in the stages section and should contain a steps section, an optional agent section, 
     //or other stage-specific directives. Practically speaking, all of the real work done by a Pipeline will be wrapped
     //in one or more stage directives.
-   // agent { label 'CD-PVGUI' }
+    agent { label 'CD-PVGUI' }
   environment {
         BROWSER = "${params.BROWSER}"
 		PLATFORM = "${params.PLATFORM}"
@@ -47,32 +46,140 @@ pipeline {
         }
         stage('Install Dependencies'){
             steps{
-              //bat "export DISPLAY=:99"
-              bat "npm install cypress@10.6.0"
-           echo "Building"
+              sh "export DISPLAY=:99"
+              sh "npm i"
             }
         }
-    
+        
         stage('Parallel In Sequential') {
             parallel {
                 stage('In Parallel 1') {
                     steps {
-                     bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin'"
-
-
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec  'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/CreationofSystemAdmin/*.feature' --browser ${BROWSER}"
                         }
-                     
+                    }
+                stage('In Parallel 3') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/BankCreation/*.feature' --browser ${BROWSER}"
+                        }
                     }
                 stage('In Parallel 2') {
                     steps {
-                       
-             
-                        bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser'"
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/TCPCreation/**/*.feature' --browser ${BROWSER}"
                         }
                     }
                     }
                 }
-    }
+        stage('Parallel In Sequential') {
+            parallel {
+                stage('In Parallel 4') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SystemAdmin/DomainCreation/*.feature' --browser ${BROWSER}"
+                        }
+                    }
+                stage('In Parallel 4') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SystemAdmin/WalletCreation/*.feature' --browser ${BROWSER}"
+                        }
+                    }
+                    }
+                }
+        stage('Parallel In Sequential') {
+            parallel {
+                stage('In Parallel 1') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/GradeCreation/*.feature' --browser ${BROWSER}"
+                        }
+                    }
+        stage('In Parallel 2') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/ProfileCreation/Systemadmin.feature' --browser ${BROWSER}"
+                        }
+                    }
+        stage('In Parallel 2') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SystemAdmin/CreationOfUsers/**/*.feature' --browser ${BROWSER}"
+                        }
+                    }
+
+                    }
+                }
+        stage('Parallel In Sequential') {
+            parallel {
+                stage('In Parallel 1') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SystemAdmin/zTransaction/*.feature' --browser ${BROWSER}"
+                        }
+                    }
+                stage('In Parallel 2') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/O2C.feature' --browser ${BROWSER}"
+                        }
+                    }
+                stage('In Parallel 2') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/EmployeeCreation.feature' --browser ${BROWSER}"
+                        }
+                    }
+
+                    }
+                }
+        stage('Parallel In Sequential') {
+            parallel {
+                stage('In Parallel 1') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/Cashin.feature' --browser ${BROWSER}"
+                        }
+                    }
+                stage('In Parallel 2') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/CashOut.feature' --browser ${BROWSER}"
+                        }
+                    }
+                stage('In Parallel 2') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/TransferToBank/bTransfertoBank.feature' --browser ${BROWSER}"
+                        }
+                    }
+
+                    }
+                }
+        stage('Parallel In Sequential') {
+            parallel {
+                stage('In Parallel 1') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser/Transactions/TransferToBank/OrderDetails.feature' --browser ${BROWSER}"
+                        }
+                    }
+                stage('In Parallel 2') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/xBusinessAdmin/*.feature' --browser ${BROWSER}"
+                        }
+                    }
+                stage('In Parallel 2') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/TCPCreation/CustomerLevelTCP' --browser ${BROWSER}"
+                        }
+                    }
+
+                    }
+                }
+        stage('Parallel In Sequential') {
+            parallel {
+                stage('In Parallel 1') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/SuperAdmin/TCPCreation/InstrumentLevelTCP' --browser ${BROWSER}"
+                        }
+                    }
+                stage('In Parallel 2') {
+                    steps {
+                        sh "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin/xBusinessAdmin/*.feature' --browser ${BROWSER}"
+                        }
+                    }
+                    }
+                }
+
+            }           
     post {
         always {
             //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
@@ -80,10 +187,9 @@ pipeline {
             //a useful "escape hatch." script blocks of non-trivial size and/or complexity should be moved into Shared Libraries instead.
          
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])           // deleteDir()
-              bat "allure generate allure-results"
-
-
+              sh "allure generate allure-results"
         }
     }
 }
 Footer
+	
