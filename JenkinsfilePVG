@@ -59,40 +59,44 @@ pipeline {
       parallel {
         stage('Unit Tests') {
           steps {
+              bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
             echo "Running unit tests"
           }
         }
         stage('Integration Tests') {
           steps {
+               bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
+                
             echo "Running integration tests"
+          }
           }
         }
       }
     }
 
 
+
     
-    
-        stage('Parallel In Sequential') {
-            parallel {
-                stage('In Parallel 1') {
-                    steps {
-                     bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
+    //     stage('Parallel In Sequential') {
+    //         parallel {
+    //             stage('In Parallel 1') {
+    //                 steps {
+    //                  bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
 
 
-                        }
+    //                     }
                      
-                    }
-                stage('In Parallel 2') {
-                    steps {
+    //                 }
+    //             stage('In Parallel 2') {
+    //                 steps {
                        
              
-                        bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
-                        }
-                    }
-                    }
-                }
-    }
+    //                     bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
+    //                     }
+    //                 }
+    //                 }
+    //             }
+    // }
     post {
         always {
             //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
