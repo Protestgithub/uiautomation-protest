@@ -56,21 +56,37 @@ pipeline {
         }
 
         stage('Test'){
-      parallel {
+
+sequential {
         stage('Unit Tests') {
           steps {
-              bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
+             bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
             echo "Running unit tests"
           }
         }
         stage('Unit Tests1') {
           steps {
-               bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
-                
+
+             bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
             echo "Running Unit Tests1"
           }
-          }
         }
+
+    //   parallel {
+    //     stage('Unit Tests') {
+    //       steps {
+    //           bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
+    //         echo "Running unit tests"
+    //       }
+    //     }
+    //     stage('Unit Tests1') {
+    //       steps {
+    //            bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
+                
+    //         echo "Running Unit Tests1"
+    //       }
+    //       }
+    //     }
       }
     }
     post {
