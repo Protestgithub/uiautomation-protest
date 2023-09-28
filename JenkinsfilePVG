@@ -73,23 +73,24 @@ pipeline {
         }
       }
     
-stage('Test'){
+      stage('Test'){
     // Create Prerequisite Data and Run Integration Tests will be executed parallel after the unit tests and unit tests1 have passed and have completed successfully
-parallel {
-  stage('Create Prerequisite Data') {
-    dependsOn 'Unit Tests', 'Unit Tests1'
-    steps {
+        parallel {
+        stage('Create Prerequisite Data') {
+        dependsOn 'Unit Tests', 'Unit Tests1'
+        steps {
       // Create prerequisite data steps go here
-       bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/SIT/workspaces/Admin' --browser chrome"
-    }
-  }
-  stage('Run Integration Tests') {
-    dependsOn 'Unit Tests', 'Unit Tests1'
-    steps {
+          bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/SIT/workspaces/Admin' --browser chrome"
+        }
+      }
+        stage('Run Integration Tests') {
+        dependsOn 'Unit Tests', 'Unit Tests1'
+        steps {
          bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/SIT/workspaces/ChannelUser' --browser chrome"
       // Run integration tests steps go here
     }
   }
+}
 }
     }
     post {
