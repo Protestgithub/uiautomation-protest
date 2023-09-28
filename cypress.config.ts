@@ -100,8 +100,8 @@ module.exports = defineConfig({
 
   env: {
 
-    Adminurl: "http://dfs-bd-demo-alb-2060992426.us-west-2.elb.amazonaws.com",
-    apiBaseURL: "http://dfs-bd-demo-alb-2060992426.us-west-2.elb.amazonaws.com",
+    Adminurl: "http://172.25.48.150",
+    apiBaseURL: "http://172.25.48.150",
     profileName: "Automationprofile",
     profileNameWHS: "AutomationprofileWHS",
     profileNameCUST: "MKTProfileTCPE2E",

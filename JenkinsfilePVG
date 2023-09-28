@@ -11,8 +11,8 @@ pipeline {
     
     choice(name: 'BROWSER', choices: ['Select','chrome', 'edge', 'firefox','electron'], description: 'Pick the web browser you want to use to run your scripts')
     string name: 'PLATFORM', defaultValue: 'x.09', trim: false, description: 'Mention the Platform where you have to run, for example: x.04,x.06,x.07,x.09'
-    string name: 'Adminurl', defaultValue: 'http://dfs-bd-demo-alb-2060992426.us-west-2.elb.amazonaws.com', trim: false, description: 'Mention the Web UI url before dfscontainer where you have to run, for example: http://172.30.41.161'
-    string name: 'apiBaseURL', defaultValue: 'http://dfs-bd-demo-alb-2060992426.us-west-2.elb.amazonaws.com', trim: false, description: 'Mention the API url where you hit api for test, for example: http://172.30.41.161'
+    string name: 'Adminurl', defaultValue: 'http://172.25.48.150', trim: false, description: 'Mention the Web UI url before dfscontainer where you have to run, for example: http://172.30.41.161'
+    string name: 'apiBaseURL', defaultValue: 'http://172.25.48.150', trim: false, description: 'Mention the API url where you hit api for test, for example: http://172.30.41.161'
 
     //booleanParam(name: "Load Jenkinsfile", defaultValue: 'true', description: 'To run db encryption')
 	//string name: 'tags', defaultValue: '/home/mobiquity/x9core/common-installer/mobiquityPay-vX.0.9_AnsibleScripts/multinode_mobiquity_deployment', trim: false, description: 'Mention the base path where ansible roles will be present, for example: /home/mobiquity/offlineDev/common-installer/latest/multinode_mobiquity_deployment'
@@ -49,6 +49,7 @@ pipeline {
             steps{
               //bat "export DISPLAY=:99"
               bat "npm install cypress@10.6.0"
+              bat "npm i"
            echo "Building"
             }
         }
