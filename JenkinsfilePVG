@@ -63,40 +63,16 @@ pipeline {
             echo "Running unit tests"
           }
         }
-        stage('Integration Tests') {
+        stage('Unit Tests1') {
           steps {
                bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
                 
-            echo "Running integration tests"
+            echo "Running Unit Tests1"
           }
           }
         }
       }
     }
-
-
-
-    
-    //     stage('Parallel In Sequential') {
-    //         parallel {
-    //             stage('In Parallel 1') {
-    //                 steps {
-    //                  bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
-
-
-    //                     }
-                     
-    //                 }
-    //             stage('In Parallel 2') {
-    //                 steps {
-                       
-             
-    //                     bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
-    //                     }
-    //                 }
-    //                 }
-    //             }
-    // }
     post {
         always {
             //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
