@@ -72,7 +72,7 @@ pipeline {
         }
     }
 
- stage('Test Data'){
+ 
  parallel {
       stage('Create Prerequisite Data') {
         dependsOn 'Unit Tests', 'Unit Tests1'
@@ -87,7 +87,7 @@ pipeline {
         }
       }
     }
- }
+ 
   }
 
 
