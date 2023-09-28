@@ -45,6 +45,7 @@ pipeline {
                 echo "Building the application"
             }
         }
+
         stage('Install Dependencies'){
             steps{
               //bat "export DISPLAY=:99"
@@ -53,6 +54,24 @@ pipeline {
            echo "Building"
             }
         }
+
+        stage('Test'){
+      parallel {
+        stage('Unit Tests') {
+          steps {
+            echo "Running unit tests"
+          }
+        }
+        stage('Integration Tests') {
+          steps {
+            echo "Running integration tests"
+          }
+        }
+      }
+    }
+
+
+    
     
         stage('Parallel In Sequential') {
             parallel {
