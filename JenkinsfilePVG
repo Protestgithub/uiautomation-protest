@@ -71,10 +71,9 @@ pipeline {
           }
           }
         }
-      }
-    
-      stage('Test'){
-    // Create Prerequisite Data and Run Integration Tests will be executed parallel after the unit tests and unit tests1 have passed and have completed successfully
+
+
+// Create Prerequisite Data and Run Integration Tests will be executed parallel after the unit tests and unit tests1 have passed and have completed successfully
         parallel {
         stage('Create Prerequisite Data') {
         dependsOn 'Unit Tests', 'Unit Tests1'
@@ -91,7 +90,13 @@ pipeline {
     }
   }
 }
-}
+
+
+      }
+    
+    
+    
+
     }
     post {
         always {
