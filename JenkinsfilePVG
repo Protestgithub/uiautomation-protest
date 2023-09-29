@@ -54,44 +54,28 @@ pipeline {
             }
         }
 
-      stage('Test'){
-      parallel {
-        stage('Unit Tests') {
-          steps {
-              bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
-            echo "Running unit tests"
-          }
-        }
-        stage('Unit Tests1') {
-          steps {
-               bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
-                
-            echo "Running Unit Tests1"
-          }
-        }
-      }
-    }
+        
+    
+        stage('Parallel In Sequential') {
+            parallel {
+                stage('In Parallel 1') {
+                    steps {
+                     bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
 
 
-    stage('Prerequisite Data') {
-        // dependsOn 'Test'
-        parallel{
-          stage('SIT'){
-        steps {
-          bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/SIT/workspaces/Admin' --browser chrome"
-        }
-      }
-      stage('SIT Channel') {
-        steps {
-          bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/SIT/workspaces/ChannelUser' --browser chrome"
-         
-        }
-       }
-       }
-      }
+                        }
+                     
+                    }
+                stage('In Parallel 2') {
+                    steps {
+                       
+             
+                        bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
+                        }
+                    }
+                    }
+                }
     }
-  
-  
     post {
         always {
             //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
@@ -105,5 +89,6 @@ pipeline {
         }
     }
 }
-
 Footer
+
+
