@@ -74,6 +74,7 @@ pipeline {
 
 
       stage('Prerequisite Data') {
+        dependsOn 'Test'
         parallel{
           stage('SIT'){
         // dependsOn 'Unit Tests', 'Unit Tests1'
@@ -82,7 +83,6 @@ pipeline {
         }
       }
       stage('Run Integration Tests') {
-        // dependsOn 'Unit Tests', 'Unit Tests1'
         steps {
           bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/SIT/workspaces/ChannelUser' --browser chrome"
          
