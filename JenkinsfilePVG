@@ -48,8 +48,8 @@ pipeline {
         stage('Install Dependencies'){
             steps{
               //bat "export DISPLAY=:99"
-              npm i
-              npm install cypress@10.6.0
+              bat npm i
+             bat npm install cypress@10.6.0
            echo "Building"
             }
         }
