@@ -45,7 +45,6 @@ pipeline {
                 echo "Building the application"
             }
         }
-
         stage('Install Dependencies'){
             steps{
               //bat "export DISPLAY=:99"
@@ -55,7 +54,7 @@ pipeline {
             }
         }
 
-        stage('Test'){
+      stage('Test'){
       parallel {
         stage('Unit Tests') {
           steps {
@@ -70,11 +69,11 @@ pipeline {
             echo "Running Unit Tests1"
           }
         }
-    }
+      }
+      }
 
- 
- parallel {
       stage('Create Prerequisite Data') {
+        parallel{
         dependsOn 'Unit Tests', 'Unit Tests1'
         steps {
           bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/SIT/workspaces/Admin' --browser chrome"
@@ -84,14 +83,12 @@ pipeline {
         dependsOn 'Unit Tests', 'Unit Tests1'
         steps {
           bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/SIT/workspaces/ChannelUser' --browser chrome"
+         }
         }
-      }
-    }
- 
-  }
-
-
-    }
+       }
+     }
+  
+  
     post {
         always {
             //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
