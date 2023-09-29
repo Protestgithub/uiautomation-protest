@@ -30,7 +30,7 @@
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
     "@shelex/cypress-allure-plugin": "^2.30.3",
     "@types/cypress-cucumber-preprocessor": "^4.0.1",
-    "cypress": "^12.1.0",
+    "cypress": "^10.6.0",
     "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
     "cypress-fail-fast": "^5.0.0",
     "cypress-failed-log": "^2.9.5",
