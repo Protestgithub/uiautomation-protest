@@ -52,6 +52,7 @@ pipeline {
               //bat "export DISPLAY=:99"
               //bat "npm install cypress@12.17.4"
               bat "npm i"
+             //bat "npm install cypress@10.6.0"
            echo "Building"
             }
         }
