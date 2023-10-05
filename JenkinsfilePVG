@@ -48,7 +48,7 @@ pipeline {
         stage('Install Dependencies'){
             steps{
               //bat "export DISPLAY=:99"
-              bat "npm install cypress@12.17.4"
+             // bat "npm install cypress@12.17.4"
               bat "npm i"
            echo "Building"
             }
