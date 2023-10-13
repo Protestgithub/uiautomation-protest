@@ -1,4 +1,6 @@
+/// <reference types="Cypress" />
 /// <reference types = "Cypress-iframe"/>
+
 import { Given, And, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 import 'cypress-iframe';
 import BulkPayout from '../../../../../../../../support/pageObjects/BulkPayout';
