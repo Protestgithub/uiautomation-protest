@@ -3,7 +3,7 @@ Feature: System Admin checker4 creation
 # Last Updated:
 # Comments    :
 # Test Case_ID : TC_521
-# @x.07 @x.09
+ @x.07 @x.09
 @prerequisite
 
 Scenario:TC_783 To verify that Master user can initiate add request of System admin if user set the whatever language
@@ -17,7 +17,7 @@ Then Confirmation message is displayed
 # Last Updated:
 # Comments    :
 # Test Case_ID : TC_521
-#  @x.07 @x.09
+  @x.07 @x.09
 @prerequisite
 
 Scenario:TC_784 To verify that Master user can approve add initiation request of System admin to the changed language
@@ -32,7 +32,7 @@ Then User status is approved
 # Comments    :
 # Test Case_ID : TC_521
 @Test
-# @x.07 @x.09
+ @x.07 @x.09
 @prerequisite
 Scenario:TC_785 Checking whether we are able to login with created systemadmin crendentials with the changed language
 Given Login into Mobiquity Portal as System admin Created by Master with changed language

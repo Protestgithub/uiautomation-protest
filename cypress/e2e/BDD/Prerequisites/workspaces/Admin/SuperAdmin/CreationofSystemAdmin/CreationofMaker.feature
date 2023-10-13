@@ -3,14 +3,14 @@ Feature: Creation of System Administrator by Super Administrator
         
     #TAGS
     #version tags
-    # @x.07 @x.09 @x.06 @x.04
+     @x.07 @x.09 @x.06 @x.04
     # suite tags
     @prerequisite @Smoke
     # test case tags
 @Smokeprerequisite
 
     Scenario: TC_01 TC_Smok27 UMS_1974 To verify that user is able to add system admin user
-        Given Create Folder
+        # Given Create Folder
         Given Login into Mobiquity Portal as Super admin Maker
         When Navigate to User Management and click on register
         And Click On System Admin and select Single User
@@ -29,7 +29,7 @@ Feature: Creation of System Administrator by Super Administrator
 
     #TAGS
     #version tags
-    # @x.04 @x.07 @x.09 @x.06
+     @x.04 @x.07 @x.09 @x.06
     # suite tags
     @prerequisite @Smoke 
     # test case tags
@@ -44,7 +44,7 @@ Feature: Creation of System Administrator by Super Administrator
 
     #TAGS
     #version tags
-    # @x.07 @x.09
+     @x.07 @x.09
     # suite tags
     
     # test case tags
@@ -60,7 +60,7 @@ Feature: Creation of System Administrator by Super Administrator
     #
     #TAGS
     #version tags
-    #@x.04 @x.06
+    @x.04 @x.06 @x.09
     # suite tags
     
     # test case tags

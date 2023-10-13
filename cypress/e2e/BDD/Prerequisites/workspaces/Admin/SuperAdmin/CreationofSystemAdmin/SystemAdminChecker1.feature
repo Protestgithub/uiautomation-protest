@@ -3,7 +3,7 @@ Feature: Creation of System Administrator by Super Administrator
         
     #TAGS
     #version tags
-    # @x.07 @x.09 @x.06 @x.04
+     @x.07 @x.09 @x.06 @x.04
     # suite tags
     
     # test case tags
@@ -27,7 +27,7 @@ Feature: Creation of System Administrator by Super Administrator
 
     #TAGS
     #version tags
-    # @x.04 @x.07 @x.09 @x.06
+     @x.04 @x.07 @x.09 @x.06
     # suite tags
     
     # test case tags
@@ -42,7 +42,7 @@ Feature: Creation of System Administrator by Super Administrator
 
         #TAGS
     #version tags
-    # @x.07 @x.09
+     @x.07 @x.09
     # suite tags
     
     # test case tags
@@ -60,7 +60,7 @@ Feature: Creation of System Administrator by Super Administrator
     #
     #TAGS
     #version tags
-    #@x.04 @x.06
+    @x.04 @x.06 @x.09
     # suite tags
     
     # test case tags
