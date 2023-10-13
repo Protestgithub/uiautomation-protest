@@ -1,5 +1,4 @@
 pipeline {
-    agent any
     //The agent section specifies where the entire Pipeline, or a specific stage, 
     //will execute in the Jenkins environment depending on where the agent section is placed.
     
@@ -30,7 +29,7 @@ pipeline {
     //The stage directive goes in the stages section and should contain a steps section, an optional agent section, 
     //or other stage-specific directives. Practically speaking, all of the real work done by a Pipeline will be wrapped
     //in one or more stage directives.
-   // agent { label 'CD-PVGUI' }
+    agent { label 'CD-PVGUI' }
   environment {
         BROWSER = "${params.BROWSER}"
 		PLATFORM = "${params.PLATFORM}"
@@ -47,35 +46,19 @@ pipeline {
         }
         stage('Install Dependencies'){
             steps{
-              //bat "export DISPLAY=:99"
-             // bat "npm install cypress@12.17.4"
+             // sh "export DISPLAY=:99"
               bat "npm i"
-           echo "Building"
             }
         }
-
         
-    
         stage('Parallel In Sequential') {
-            parallel {
-                stage('In Parallel 1') {
-                    steps {
-                     bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/Admin' --browser chrome"
+            steps{
+                bat "./node_modules/.bin/cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec  'cypress/e2e/BDD/*.feature' --browser ${BROWSER}"
 
-
-                        }
-                     
-                    }
-                stage('In Parallel 2') {
-                    steps {
-                       
-             
-                        bat "npx cypress run -e TAGS='${PLATFORM}' --env Adminurl=${Adminurl},apiBaseURL=${apiBaseURL} --spec 'cypress/e2e/BDD/Prerequisites/workspaces/ChannelUser' --browser chrome"
-                        }
-                    }
-                    }
                 }
-    }
+
+            } 
+    }         
     post {
         always {
             //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
@@ -83,13 +66,8 @@ pipeline {
             //a useful "escape hatch." script blocks of non-trivial size and/or complexity should be moved into Shared Libraries instead.
          
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])           // deleteDir()
-              bat "allure generate allure-results"
-
-
+               bat "allure generate allure-results"
         }
     }
 }
 Footer
-
-
-
